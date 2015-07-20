@@ -60,6 +60,9 @@ group :development, :test do
   gem 'shoulda-matchers', '~> 2.8.0'
 
   gem 'vcr'
+end
 
+
+group :test do
   gem "webmock"
 end

@@ -7,7 +7,7 @@ private
     response = RestClient::Request.new(
 
      :method => 'post',
-     :url => 'https://api.twilio.com/2010-04-01/Accounts/ACb4bc7a4c7170342f76dfe65c4fde1d91/Messages.json',
+     :url => "https://api.twilio.com/2010-04-01/Accounts/#{ENV['TWILIO_ACCOUNT_SID']}/Messages.json",
      :user => ENV['TWILIO_ACCOUNT_SID'],
      :password => ENV['TWILIO_AUTH_TOKEN'],
      :payload => { :Body => body,
