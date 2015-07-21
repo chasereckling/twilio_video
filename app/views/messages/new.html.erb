@@ -11,12 +11,12 @@
 
 
 
-<%= form_for @message do |f| %>
-  <%= f.label :to %>
-  <%= f.text_field :to %>
-  <%= f.label :from %>
-  <%= f.text_field :from %>
-  <%= f.label :body %>
-  <%= f.text_field :body %>
-  <%= f.submit :submit %>
+<%= form_tag messages_path do %>
+  <%= label_tag :to %>
+  <%= collection_select :to, :contact_phone_numbers, @contacts, :phone_number, :name, {}, {:multiple => true} %>
+  <%= label_tag :from %>
+  <%= text_field_tag :from %>
+  <%= label_tag :body %>
+  <%= text_field_tag :body %>
+  <%= submit_tag :submit %>
 <% end %>

@@ -5,14 +5,14 @@ class MessagesController < ApplicationController
 
   def new
     @message = Message.new
+    @contacts = Contact.all
   end
 
   def create
-    @message = Message.new(message_params)
-    from = message_params[:from]
-    body = message_params[:body]
-    @senders = (@message.to).split(",")
 
+    from = params[:from]
+    body = params[:body]
+    @senders = params[:to][:contact_phone_numbers]
 
     @senders.each do |sender|
       @sent_message = Message.new({:to => sender, :from => from, :body => body})
@@ -29,8 +29,8 @@ class MessagesController < ApplicationController
     @message = Message.find(params[:id])
   end
 
-  private
-  def message_params
-  params.require(:message).permit(:to, :from, :body)
-  end
+  # private
+  # def message_params
+  # params.require(:message).permit(:to, :from, :body)
+  # end
 end
