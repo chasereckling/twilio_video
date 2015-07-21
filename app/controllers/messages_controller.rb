@@ -9,7 +9,6 @@ class MessagesController < ApplicationController
   end
 
   def create
-
     from = params[:from]
     body = params[:body]
     @senders = params[:to][:contact_phone_numbers]

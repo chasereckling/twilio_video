@@ -13,7 +13,7 @@
 
 <%= form_tag messages_path do %>
   <%= label_tag :to %>
-  <%= collection_select :to, :contact_phone_numbers, @contacts, :phone_number, :name, {}, {:multiple => true} %>
+  <%= collection_select(:to, :contact_phone_numbers, @contacts, :phone_number, :name, {include_hidden: false}, {:multiple => true}) %>
   <%= label_tag :from %>
   <%= text_field_tag :from %>
   <%= label_tag :body %>
